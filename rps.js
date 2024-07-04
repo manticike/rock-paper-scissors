@@ -1,3 +1,7 @@
+// Variables to keep track of the scores
+let humanScore = 0;
+let computerScore = 0;
+
 // Getting computer's choice
 function getComputerChoice() {
   const computerChoice = Math.floor(Math.random() * 3);
@@ -13,33 +17,45 @@ function getComputerChoice() {
     case 2:
       computerSelect = 'scissors';
   }
-  return `Computer chooses ${computerSelect}`;
+  return computerSelect;
 }
 
-// Getting the humans choice
-function getHumanChoice(choice) {
+// A function to get the human's choice
+function getHumanChoice(){
+  let playerInput = prompt("Enter one of these: rock, paper, scissors ");
 
-  let playerChoice;
+  // Convert the user input into a lowercase
+  let humanChoice = playerInput.toLowerCase();
+  return humanChoice;
+}
 
-  switch(choice) {
-    case 1:
-      playerChoice = 'rock';
-      break;
-    case 2:
-      playerChoice = 'paper';
-      break;
-    case 3:
-      playerChoice = 'scissors';
-      break;
+// A function to play a single round of the rps game
+function playRound(humanChoice, computerChoice) {
+  if(((humanChoice === 'rock') && (computerChoice === 'scissors')) || ((humanChoice === 'paper') && (computerChoice === 'rock')) || ((humanChoice === 'scissors') && (computerChoice === 'paper'))){
+    console.log(`You win! You chose ${humanChoice} and computer chose ${computerChoice}`);
+    humanScore++;
   }
-  return playerChoice;
+  
+  else if (humanChoice === computerChoice) {
+    console.log(`It's a tie! You chose ${humanChoice} and computer chose ${computerChoice}`);
+  }
+  
+  else {
+    console.log(`You lose! you chose ${humanChoice} and computer chose ${computerChoice}`);
+    computerScore++;
+  }
 }
 
-// Ask the human for his choice
-let userInput = prompt("Please enter a number: 1 = rock, 2 = paper, 3 = scissors" );
+// A function to play the game 5 times
+function playGame() {
+  for(let i = 0; i < 5; i++){
+    const computerSelection = getComputerChoice();
+    let humanSelection = getHumanChoice();
+    // Calling the function playRound to play the game 5 times
+    console.log(playRound(humanSelection, computerSelection));
+    console.log(`Your Score is: ${humanScore} and computer score is ${computerScore}`);
+  } 
+}
 
-let humanSelection = parseInt(userInput);
-
-console.log(getHumanChoice(humanSelection));
-
-console.log(getComputerChoice());
+// calling the function for it to run
+playGame();
