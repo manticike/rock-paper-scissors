@@ -7,11 +7,28 @@
   </head>
   <body>
 
+    <h1>ROCK PAPER SCISSORS GAME</h1>
     <div class="playerChoice">
-      <button class="btn" id="rock"></button>
-      <button class="btn" id="paper"></button>
-      <button class="btn" id="scissors"></button>
+      <button class="rps-btn" id="rock">✊</button>
+      <button class="rps-btn" id="paper">✋</button>
+      <button class="rps-btn" id="scissors">✌</button>
     </div>
+
+    <div class="scoresLabel">
+      <span id="playerScoreLabel">Player Scores</span>
+      <span id="computerScoresLabel">Computer Scores</span>
+    </div>
+
+    <div class="scores">
+      <div id="playerScores"></div>
+      <div id="computerScores"></div>
+    </div>
+
+    <div><span id="results">Round Results</span></div>
+    <div id="roundWinner"></div>
+
+    <!--Restart game-->
+    <button id="reset-game">Play Again</button>
     <script src="rps.js"></script>
   </body>
 </html>

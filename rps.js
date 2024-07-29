@@ -1,6 +1,13 @@
 let humanScore = 0;
 let computerScore = 0;
-const playerButton = document.querySelectorAll('.playerChoice');
+
+const playerButton = document.querySelectorAll('.rps-btn');
+const scores = document.querySelector('.scores');
+const playerPoints = document.querySelector('#playerScores');
+const computerPoints = document.querySelector('#computerScores');
+const roundResults = document.querySelector('#roundWinner');
+
+const restartGame = document.querySelector('#reset-game');
 
 
 playerButton.forEach(button => { button.addEventListener('click', getPlayerChoice) });
@@ -27,17 +34,18 @@ function getComputerChoice() {
 // A function to play a single round of the rps game
 function playRound(playerSelection, computerChoice) {
   if(((playerSelection === 'rock') && (computerChoice === 'scissors')) || ((playerSelection === 'paper') && (computerChoice === 'rock')) || ((playerSelection === 'scissors') && (computerChoice === 'paper'))){
-    console.log(`You win! You chose ${playerSelection} and computer chose ${computerChoice}`);
-    humanScore++;
+    roundWinner.textContent = `You Won!\n ${playerSelection} beats ${computerChoice}`;
+
+    playerPoints.textContent = ++humanScore;
   }
   
   else if (playerSelection === computerChoice) {
-    console.log(`It's a tie! You chose ${playerSelection} and computer chose ${computerChoice}`);
+    roundWinner.textContent = `It's a Tie\n You chose ${playerSelection} and computer chose ${computerChoice}`;
   }
   
   else {
-    console.log(`You lose! you chose ${playerSelection} and computer chose ${computerChoice}`);
-    computerScore++;
+    roundWinner.textContent = `You Lose!\n ${computerChoice} beats ${playerSelection}`;
+    computerPoints.textContent = ++computerScore;
   }
 }
 
@@ -46,3 +54,20 @@ function getPlayerChoice(e) {
   let playerSelection = (e.target.id);
   playRound(playerSelection, getComputerChoice());
 }
+
+
+// function playGame() {
+//   for(let i = 0; i < 5; i++){
+//     const computerSelection = getComputerChoice();
+//     let humanSelection = getPlayerChoice(e);
+//     // Calling the function playRound to play the game 5 times
+//     console.log(playRound(humanSelection, computerSelection));
+//     console.log(`Your Score is: ${humanScore} and computer score is ${computerScore}`);
+//   } 
+// }
+
+
+// A button to reset the game
+restartGame.addEventListener('click', function refreshGame() {
+  window.location.reload();
+});
