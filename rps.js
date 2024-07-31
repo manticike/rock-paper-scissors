@@ -9,6 +9,10 @@ const roundResults = document.querySelector('#roundWinner');
 
 const restartGame = document.querySelector('#reset-game');
 
+// Update the footer with the current year
+const currentYear = document.querySelector('#current-year');
+
+currentYear.textContent = new Date().getFullYear();
 
 playerButton.forEach(button => { button.addEventListener('click', getPlayerChoice) });
 
@@ -56,18 +60,19 @@ function getPlayerChoice(e) {
 }
 
 
-// function playGame() {
-//   for(let i = 0; i < 5; i++){
-//     const computerSelection = getComputerChoice();
-//     let humanSelection = getPlayerChoice(e);
-//     // Calling the function playRound to play the game 5 times
-//     console.log(playRound(humanSelection, computerSelection));
-//     console.log(`Your Score is: ${humanScore} and computer score is ${computerScore}`);
-//   } 
-// }
-
+function playGame() {
+  for(let i = 0; i < 5; i++){
+    const computerSelection = getComputerChoice();
+    let humanSelection = getPlayerChoice(e);
+    // Calling the function playRound to play the game 5 times
+    console.log(playRound(humanSelection, computerSelection));
+    console.log(`Your Score is: ${humanScore} and computer score is ${computerScore}`);
+  } 
+}
 
 // A button to reset the game
 restartGame.addEventListener('click', function refreshGame() {
   window.location.reload();
 });
+
+

@@ -1,3 +1,7 @@
+* {
+  padding: 0;
+  margin: 0;
+}
 
 button {
   display: inline-block;
@@ -6,8 +10,65 @@ button {
   margin: 0;
   vertical-align: top;
   width: 104px;
+  background-color: #3D52A0;
+  border-radius: 8px;
 }
 
 .rps-btn {
   font-size: 60px;
+}
+
+
+#reset-game{
+  width: 150px;
+  height: 50px;
+  color: #E64833;
+  font-size: 18px;
+}
+
+#main-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #ADBBDA;
+  height: 100vh;
+
+}
+
+.main-heading, .sub-heading {
+  padding-bottom: 20px;
+}
+
+.scoresLabel {
+  display: flex;
+  margin-top: 0;
+  justify-content: flex-start;
+  padding: 30px;
+}
+
+#playerScoreLabel, #computerScoresLabel{
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+#playerScores, #computerScores, #roundWinner {
+  border: 2px dashed black;
+  height: 30px;
+  text-align: center;
+  padding: 10px;
+}
+
+#roundWinner {
+  color: #874F41;
+  margin-bottom: 10px;
+}
+
+.footer {
+  background-color: #874F41;
+  text-align: center;
+  font-size: large;
+  height: 40px;
+  padding-top: 20px;
 }

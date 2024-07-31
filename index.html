@@ -6,29 +6,33 @@
    <link rel="stylesheet" href="styles.css">
   </head>
   <body>
+    <div id="main-container">
+      <h1 class="main-heading">ROCK PAPER SCISSORS GAME</h1>
+      <h2 class="sub-heading">CHOOSE YOUR WEAPON</h2>
+      <div class="playerChoice">
+        <button class="rps-btn" id="rock">✊</button>
+        <button class="rps-btn" id="paper">✋</button>
+        <button class="rps-btn" id="scissors">✌</button>
+      </div>
 
-    <h1>ROCK PAPER SCISSORS GAME</h1>
-    <div class="playerChoice">
-      <button class="rps-btn" id="rock">✊</button>
-      <button class="rps-btn" id="paper">✋</button>
-      <button class="rps-btn" id="scissors">✌</button>
+      <div class="scoresLabel">
+        <div id="playerScoreLabel">Player Scores
+          <div id="playerScores"></div>
+        </div>
+        <div id="computerScoresLabel">Computer Scores
+          <div id="computerScores"></div>
+        </div>
+      </div>
+
+      <div><span id="results">Round Results</span></div>
+      <div id="roundWinner"></div>
+
+      <!--Restart game-->
+      <button id="reset-game">Play Again</button>
     </div>
-
-    <div class="scoresLabel">
-      <span id="playerScoreLabel">Player Scores</span>
-      <span id="computerScoresLabel">Computer Scores</span>
-    </div>
-
-    <div class="scores">
-      <div id="playerScores"></div>
-      <div id="computerScores"></div>
-    </div>
-
-    <div><span id="results">Round Results</span></div>
-    <div id="roundWinner"></div>
-
-    <!--Restart game-->
-    <button id="reset-game">Play Again</button>
+    
+     <!--Footer menu-->
+    <footer class="footer">&copy Mantic Ike <span id="current-year"></span></footer>
     <script src="rps.js"></script>
   </body>
 </html>
